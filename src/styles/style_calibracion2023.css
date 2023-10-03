@@ -1,0 +1,326 @@
+/* As hex codes */
+
+.color-primary-0 { color: #37768A}	/* Main Primary color */
+.color-primary-1 { color: #37768A }
+.color-primary-2 { color: #38788D }
+.color-primary-3 { color: #51A9C6 }
+.color-primary-4 { color: #52ACC9 }
+
+.color-secondary-1-0 { color: #477AAB }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #3D6790 }
+.color-secondary-1-2 { color: #3D6993 }
+.color-secondary-1-3 { color: #5791C9 }
+.color-secondary-1-4 { color: #5894CD }
+
+.color-secondary-2-0 { color: #3EA698 }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #348B7F }
+.color-secondary-2-2 { color: #358E82 }
+.color-secondary-2-3 { color: #4CC6B5 }
+.color-secondary-2-4 { color: #4ECAB9 }
+
+:root{
+    
+
+    --fondoTabla-color:#ffffff;
+    --default-color: #b5d2dc ;
+    --altern-color:#839ea7;
+
+    --map-color-bgd:#707070;
+
+    --bodybgd-color:#d6d6d6;
+
+    --t-color:#5f4242;
+
+    --th-color-bRH:#c1c0fb  ;
+    --th-color-bBT:#b2cce7  ;
+    --th-color-bgd:#6f7f8e ;
+
+    --map-color-bor:#000000 ;
+    --text-lbl-color:#000000;
+    --text-lbl-val-color:#fffefe;
+    --text-th-color:#ffffff;
+    --text-boton-color:#000000;
+    --text-input-color:#000000;
+    --ubicacion-color:rgb(167, 167, 253) ;
+    --tam_texto:15px;
+    --tam-ubi:70px;
+    --max-width:100px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+
+
+/*----------------------------*/
+
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+text-align: center;
+padding-left: 5px;
+padding-right: 5px;
+background: rgb(161, 218, 252);
+color: rgb(0, 0, 0);
+
+}
+
+.leaflet-popup-content{
+padding: -1px;
+margin-left: -1px;
+margin-right: -1px;
+
+}
+.dev-de-icono {
+background-color: transparent;
+border: none;
+}
+
+.leaflet-marker-icon .numero{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+/*background-color: rgb(77, 118, 252);*/
+background-color: var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+/*cambio */
+.leaflet-marker-icon  .numeroPendiente{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+background-color: var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+
+.leaflet-marker-icon .numeroSinEstatus{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+background-color:var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+}
+
+.leaflet-marker-icon .numeroBaja
+{
+
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+background-color: var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+}
+
+.leaflet-marker-icon .numero_estudioVencido{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+/*background-color: rgb(77, 118, 252);*/
+background-image: linear-gradient(90deg,  var(--ubicacion-color) 0%, var(--ubicacion-color) 80%,rgba(245,174,14,1) 81%, rgba(245,174,14,1) 100%);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+
+/*cambio */
+.leaflet-marker-icon  .numeroPendiente_estudioVencido{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+/* background-color: rgb(240, 252, 77);*/
+background-image: linear-gradient(90deg,  var(--ubicacion-color) 0%, var(--ubicacion-color)80%,rgba(245,174,14,1) 81%, rgba(245,174,14,1) 100%);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+
+.leaflet-marker-icon .numeroSinEstatus_estudioVencido{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+background-color: var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+}
+
+.leaflet-marker-icon .numero_estudioVigente{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+/*background-color: rgb(77, 118, 252);*/
+background-image: linear-gradient(90deg,  var(--ubicacion-color) 0%, var(--ubicacion-color) 80%,rgb(3, 228, 33) 81%, rgb(3, 228, 33) 100%);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+
+/*cambio */
+.leaflet-marker-icon  .numeroPendiente_estudioVigente{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+/* background-color: rgb(240, 252, 77);*/
+background-image: linear-gradient(90deg,  var(--ubicacion-color) 0%, var(--ubicacion-color) 80%,rgb(3, 228, 33) 81%, rgb(3, 228, 33) 100%);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+
+}
+
+.leaflet-marker-icon .numeroSinEstatus_estudioVigente{
+position: relative;
+color:rgb(0, 0, 0);
+font-weight: bold;
+top: -42px;
+background-color: var(--ubicacion-color);
+border-radius: 5px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+font-size: var(--tam_texto);
+/*tamaño del cuadro de texto
+width: calc(var(--tam_texto) + 30px);*/
+width: var(--tam-ubi);
+min-width: 60px;
+max-width: var(--max-width);
+margin-left: -18px;
+text-align: center;
+}
+.leaflet-marker-pane img{
+    width: 10px;
+}
+
+.leaflet-control-search .search-input{
+    height: 45px;
+    padding: 0px 20px 0px 8px;
+    font-size: 18pt;
+}
+
+.leaflet-control-search .search-button {
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+    background: url(../images/search-icon-mobile.png) no-repeat 4px 4px #ffcfaf;
+    border-radius: 4px;
+}
+.leaflet-control-search .search-button:hover {
+    background: url(../images/search-icon-mobile.png) no-repeat 4px -29px #edfbff;
+}
+.leaflet-touch .leaflet-bar a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    
+}
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
+    font-size: 40px;
+}

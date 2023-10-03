@@ -1,0 +1,331 @@
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="src/images/images/ubi.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938">
+    <meta name="theme-color" content="#db4938">
+
+    <title>UBICACION DE EIMP</title>
+    <link rel="canonical" href="https://witnessmx.github.io/ubicaciones/" />
+    <link rel="stylesheet" href="src/styles/leaflet.css"/>
+    <link rel="stylesheet" href="src/styles/leaflet-search.css">
+    <link rel="stylesheet" href="src/styles/style_calibracion2023.css">
+    <script src="src/scripts/leaflet.js"></script>
+    <script src="src/scripts/leaflet-search.js"></script>
+    <script src="src/UBICACIONES.json"></script>
+
+    <style>
+
+body{
+    background-color: var(--bodybgd-color);
+    margin-left: 0;
+}        
+
+#mapa {
+    /*height: 99.4vh;*/
+    height: 90vh;
+    /*margin-top: -9px;*/
+    margin-top: 88px;
+    margin-left: 0px;
+    margin-right: -8px;
+    background-color: var(--map-color-bgd);
+    /* border-style: solid; */
+    border-width: 2px;
+    /* border-radius: 7px; */
+    border-width: 1pt;
+    border-color: var(--map-color-bor);
+    text-align: center;
+}
+#contenedor{
+    height: 50vh;
+    background-color: rebeccapurple;
+    margin-left: 5px;
+    border-style:solid;
+    border-width: 2px;
+    border-radius: 7px;
+    border-width: 1pt;
+    border-color: var(--map-color-bor);
+
+}
+#div_buscar{
+   position: absolute;
+   width: 98%;
+   margin-left: 1%;
+   z-index: 900;
+  align-items:end;
+}
+
+#buscar_inp{
+    margin-top: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40pt;
+    border-radius: 25px;
+    border-style: none;
+    padding: 5px;
+    padding-left: 10px;
+    width: 70%;
+    margin-left: 15%;
+    position: absolute;
+    text-transform: uppercase;
+}
+#bot_buscar{
+    margin-top: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40pt;
+    border-radius: 25px;
+    border-style: none;
+    padding: 5px;
+    width: 80px;
+    margin-left: 77%;
+    background:url("src/images/marcadores/search.png") no-repeat center top ;
+    position: absolute;
+}
+    </style>
+</head>
+<body>
+        <div id="mapa"></div>
+   
+       <!-- <div id="contenedor"></div>-->
+       <script src="src/scripts/mapa.js"></script>
+       <script>//mostrar ubicaciones 
+        //----------------------
+
+        
+        L.NumberedDivIcon = L.Icon.extend({
+          options: {
+            iconUrl: 'src/images/marcadores/marcador2.png',//<---------*******
+            number: '',
+            status:'', //<--cambio se agrego
+            EstudioVenc:'',//<---cambio Estudios
+            shadowUrl: null,
+            iconSize: new L.Point(25, 25),
+            iconAnchor: new L.Point(12.5, 25),
+            popupAnchor: new L.Point(0, -40),
+            /*
+            iconAnchor: (Point)
+            popupAnchor: (Point)
+            */
+            className: 'dev-de-icono'
+          },
+
+          createIcon: function () {
+            var div = document.createElement('div');
+            var img = this._createImg(this.options['iconUrl']);
+            var numdiv = document.createElement('div');
+              //cambio ->>> numdiv.setAttribute ( "class", "numero" );
+                //colores por fecha de estudio
+            let vFechaHoy= new Date();
+            let vFechaEstudio=new Date(this.options['EstudioVenc']);
+            let vEstatusEstudio;
+            if (vFechaEstudio!='Invalid Date') {
+                    if(vFechaHoy>=vFechaEstudio){
+                    // console.log("<vencido> "+vFechaEstudio);
+                        vEstatusEstudio='vencido';
+                    }
+                    else{
+                        //console.log("<vigente> "+vFechaEstudio);
+                        vEstatusEstudio='vigente';
+                    }
+
+                    switch (this.options['status']) {
+                        case 'Activo':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numero_estudioVigente" );  
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numero_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                            
+                            break;
+                        case 'Activo / Falta de documentos':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numeroPendiente_estudioVigente" );  
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numeroPendiente_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                            break;
+                        case 'Sin Estatus':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numeroSinEstatus_estudioVigente" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numeroSinEstatus_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                        
+                            break;
+                        default:
+                            numdiv.setAttribute ( "class", "numeroBaja" );
+                            numdiv.setAttribute("onclick","IdShow(this);");
+                            break;
+                    }
+
+
+            } else {
+            if (this.options['status']=="Activo") {
+                numdiv.setAttribute ( "class", "numero" );
+                numdiv.setAttribute("onclick","IdShow(this);");
+            } else {
+                if (this.options['status']=="Activo / Falta de documentos") {
+                    numdiv.setAttribute ( "class", "numeroPendiente" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                } else if(this.options['status']=="Sin Estatus") {
+                    numdiv.setAttribute ( "class", "numeroSinEstatus" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                }else{
+                    numdiv.setAttribute ( "class", "numeroBaja" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                };
+                
+            }  
+
+
+            
+            } //<<--cambio
+            numdiv.innerHTML = this.options['number'] || ''; 
+            div.appendChild ( img );
+            div.appendChild ( numdiv );
+            this._setIconStyles(div, 'icon');
+            return div;
+          },
+
+          //you could change this to add a shadow like in the normal marker if you really wanted
+          createShadow: function () {
+            return null;
+          }
+        });
+
+       
+        //---------------------------------
+        function MesLetra(vMesNumero){
+            switch (vMesNumero) {
+                case 1:
+                    return "Enero"
+                    break;
+                case 2:
+                    return "Febrero"
+                    break;
+                case 3:
+                    return "Marzo"
+                    break;
+                case 4:
+                    return "Abril"
+                    break;
+                case 5:
+                    return "Mayo"
+                    break;
+                case 6:
+                    return "Junio"
+                    break;
+                case 7:
+                    return "Julio"
+                    break;
+                case 8:
+                    return "Agosto"
+                    break;
+                case 9:
+                    return "Septiembre"
+                    break;
+                case 10:
+                    return "Octubre"
+                    break;
+                case 11:
+                    return "Noviembre"
+                    break;
+                case 12:
+                    return "Diciembre"
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        function CargarElementosDeMapaConID(Datos){
+            for (i in Datos){
+                if(Datos[i].UbicacionX==='1100'){
+                }
+                else{
+                //--desglozar fecha
+                let fecha= new Date(Datos[i].Calibracion);
+                let vFechaCal=MesLetra(fecha.getMonth()+1)+ " " + fecha.getFullYear();
+               //console.log(Datos[i].Gage_iD + " " + Datos[i].Calibracion + " " + vFechaCal);
+                //_---
+
+                //--Incluyo Fecha estudio
+                let fechaEst=new Date(Datos[i].Estudio);
+                let vFechaEst=fechaEst.getFullYear()+" "+MesLetra(fechaEst.getMonth()+1);
+
+
+                
+
+                //--cambio
+                var marker3 = new L.Marker(
+                        new xy(Datos[i].UbicacionX,Datos[i].UbicacionY), 
+                            {//<---cambio icon:new L.NumberedDivIcon({number:Datos[i].Gage_iD})
+                                title:Datos[i].Gage_iD,icon:new L.NumberedDivIcon({number:Datos[i].Gage_iD,status:Datos[i].Estatus,EstudioVenc:Datos[i].Estudio}),
+                                tags:[Datos[i].Estatus,Datos[i].Tipo,vFechaCal,vFechaEst]
+                            }
+                    ).addTo(map);
+                marker3.bindPopup('<div style="text-align: center;"><font size="6" >Gage: </b>'+Datos[i].Gage_iD+'</font></div>');
+                  
+                markersLayer.addLayer(marker3);
+                }
+            }
+        };
+
+
+        var DATOSS;
+        CargarElementosDeMapaConID(UBICACIONES);
+        DATOSS=UBICACIONES;
+
+        function filtroID(){
+            var Datos=DATOSS;
+            var divID=document.querySelectorAll("div");
+            //console.log(divID);
+            //console.log(Datos);
+            var Arreglo=[];
+            var cont=1;
+            divID.forEach(element => {
+                if(element.className=="numero"||element.className=="numeroPendiente"||element.className=="numeroSinEstatus"||element.className=="numeroBaja"){        
+                // console.log(cont);
+                    cont=cont+1;
+                    for (let i = 0; i < Datos.length; i++) {
+                        if(Datos[i].Gage_iD==element.textContent){
+                            Arreglo.push(Datos[i]);
+                                                    
+                        }
+                    }                                                               
+                }                                
+            });
+            //console.log(Arreglo);
+        }
+        function IdShow(id){
+            console.log(id.textContent);
+            for (let i = 0; i < DATOSS.length; i++) {
+                        if(DATOSS[i].Gage_iD==id.textContent){
+                            console.log(DATOSS[i]);
+                            var img=document.getElementById('img_gages')
+                            //document.getElementById('ruta_label').innerHTML=DATOSS[i].Ruta;
+                            //img.setAttribute('src','src/images/Galeria/'+ DATOSS[i].Ruta);   
+                            //document.getElementById('idGage1').value=DATOSS[i].Gage_iD;                    
+                        }
+                    }      
+            
+        }
+
+
+
+        
+    </script>
+    <script src="src/scripts/app.js"></script>
+</body>
+</html>

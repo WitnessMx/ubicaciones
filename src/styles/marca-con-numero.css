@@ -1,0 +1,210 @@
+:root{
+    --top_tag:-43px;
+    --marginleft_tag:-21px;
+}
+.dev-de-icono {
+	background-color: transparent;
+
+}
+.numero{
+    --tam_texto:12px;
+}
+
+.leaflet-marker-icon{
+    --max-width: fit-content;
+}
+.leaflet-marker-icon .numero{
+   position: relative;
+    color:rgb(255, 255, 255);
+    top: var(--top_tag);/*top: -42px;*/
+    background-color: rgb(77, 118, 252);
+    /*background-image: linear-gradient(90deg,  rgb(77, 118, 252) 0%, rgb(77, 118, 252) 80%,rgba(245,174,14,1) 81%, rgba(245,174,14,1) 100%);*/
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto
+    width: calc(var(--tam_texto) + 30px);*/
+    min-width: 60px;
+    max-width: var(--max-width);
+    margin-left: var(--marginleft_tag);
+    text-align: center;
+    
+}
+
+/*cambio */
+.leaflet-marker-icon  .numeroPendiente{
+    position: relative;
+    color:rgb(0, 0, 0);
+    top: var(--top_tag);
+    background-color: rgb(240, 252, 77);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto
+    width: calc(var(--tam_texto) + 30px);*/
+    min-width: 60px;
+    max-width: var(--max-width);
+    margin-left: var(--marginleft_tag);
+    text-align: center;
+
+}
+
+.leaflet-marker-icon .numeroSinEstatus{
+    position: relative;
+    color:rgb(0, 0, 0);
+    top: var(--top_tag);
+    background-color: rgb(150, 150, 150);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto
+    width: calc(var(--tam_texto) + 30px);*/
+    min-width: 60px;
+    max-width: var(--max-width);
+    margin-left:var(--marginleft_tag);
+    text-align: center;
+}
+
+.leaflet-marker-icon .numeroBaja
+{
+
+    position: relative;
+    color:rgb(255, 255, 255);
+    top: var(--top_tag);
+    background-color: rgb(255, 60, 60);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto
+    width: calc(var(--tam_texto) + 30px);*/
+    min-width: 60px;
+    max-width: var(--max-width);
+    margin-left: var(--marginleft_tag);
+    text-align: center;
+}
+
+.leaflet-marker-icon .numero_estudioVencido{
+    position: relative;
+     color:rgb(255, 255, 255);
+     top: var(--top_tag);
+     /*background-color: rgb(77, 118, 252);*/
+     background-image: linear-gradient(90deg,  rgb(77, 118, 252) 0%, rgb(77, 118, 252) 80%,rgba(245,174,14,1) 81%, rgba(245,174,14,1) 100%);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag);
+     text-align: center;
+     
+ }
+ 
+ /*cambio */
+ .leaflet-marker-icon  .numeroPendiente_estudioVencido{
+     position: relative;
+     color:rgb(0, 0, 0);
+     top: var(--top_tag);
+    /* background-color: rgb(240, 252, 77);*/
+     background-image: linear-gradient(90deg,  rgb(240, 252, 77) 0%, rgb(240, 252, 77) 80%,rgba(245,174,14,1) 81%, rgba(245,174,14,1) 100%);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag);
+     text-align: center;
+ 
+ }
+ 
+ .leaflet-marker-icon .numeroSinEstatus_estudioVencido{
+     position: relative;
+     color:rgb(0, 0, 0);
+     top: var(--top_tag);
+     background-color: rgb(150, 150, 150);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag);
+     text-align: center;
+ }
+
+ .leaflet-marker-icon .numero_estudioVigente{
+    position: relative;
+     color:rgb(255, 255, 255);
+     top: var(--top_tag);
+     /*background-color: rgb(77, 118, 252);*/
+     background-image: linear-gradient(90deg,  rgb(77, 118, 252) 0%, rgb(77, 118, 252) 80%,rgb(3, 228, 33) 81%, rgb(3, 228, 33) 100%);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag);
+     text-align: center;
+     
+ }
+ 
+ /*cambio */
+ .leaflet-marker-icon  .numeroPendiente_estudioVigente{
+     position: relative;
+     color:rgb(0, 0, 0);
+     top: var(--top_tag);
+    /* background-color: rgb(240, 252, 77);*/
+     background-image: linear-gradient(90deg,  rgb(240, 252, 77) 0%, rgb(240, 252, 77) 80%,rgb(3, 228, 33) 81%, rgb(3, 228, 33) 100%);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag);
+     text-align: center;
+ 
+ }
+ 
+ .leaflet-marker-icon .numeroSinEstatus_estudioVigente{
+     position: relative;
+     color:rgb(0, 0, 0);
+     top: var(--top_tag);
+     background-color: rgb(150, 150, 150);
+     border-radius: 5px;
+     border-style: solid;
+     border-color: black;
+     border-width: 1px;
+     font-size: var(--tam_texto);
+     /*tamaño del cuadro de texto
+     width: calc(var(--tam_texto) + 30px);*/
+     min-width: 60px;
+     max-width: var(--max-width);
+     margin-left: var(--marginleft_tag)  ;
+     text-align: center;
+ }
