@@ -12,6 +12,10 @@ const assets = [
   "/ubicaciones/src/images/search-icon.png",
   "/ubicaciones/src/images/search-icon-mobile.png",
   "/ubicaciones/src/images/marcadores/marcador2.png",
+  "/ubicaciones/src/styles/leaflet.css",
+  "/ubicaciones/src/styles/leaflet-search.css"
+  "/ubicaciones/src/styles/style_calibracion2023.css"
+
 ];
 
 self.addEventListener("install", installEvent => {
