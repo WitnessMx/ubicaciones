@@ -1,4 +1,4 @@
-const mapaPWA = "MapaEIMP@v1-cache";
+const mapaPWA = "MapaEIMP@v2-cache";
 const assets = [
   "/ubicaciones/",
   "/ubicaciones/index.html",
@@ -12,6 +12,7 @@ const assets = [
   "/ubicaciones/src/images/search-icon.png",
   "/ubicaciones/src/images/search-icon-mobile.png",
   "/ubicaciones/src/images/marcadores/marcador2.png",
+  "/ubicaciones/src/images/ubi.png",
   "/ubicaciones/src/styles/leaflet.css",
   "/ubicaciones/src/styles/leaflet-search.css",
   "/ubicaciones/src/styles/style_calibracion2023.css"
