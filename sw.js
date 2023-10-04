@@ -1,4 +1,4 @@
-const mapaPWA = "MapaEIMP";
+const mapaPWA = "MapaEIMP@v1-cache";
 const assets = [
   "/ubicaciones/",
   "/ubicaciones/index.html",
@@ -24,6 +24,22 @@ self.addEventListener("install", installEvent => {
       return cache.addAll(assets);
     })
   );
+});
+
+self.addEventListener('activate',(e)=>{
+   e.waitUntil(
+       caches.keys().then(cacheList=>{
+          return Promise.all(
+              cacheList.map(cache=>{
+                  if(!mapaPWA.includes(cache)){
+                      return caches.delete(cache);
+                  }
+          
+              }));
+
+       })
+
+   );
 });
 
 self.addEventListener("fetch", fetchEvent => {
