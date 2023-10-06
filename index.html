@@ -27,7 +27,8 @@ body{
 }        
 
 #mapa {
-    height: 99.4vh;
+    height: 99.4vh;
+
     margin-top: -9px;
    /* margin-top: 88px;*/
     margin-left: 0px;
@@ -263,7 +264,7 @@ body{
                                 tags:[Datos[i].Estatus,Datos[i].Tipo,vFechaCal,vFechaEst]
                             }
                     ).addTo(map);
-                marker3.bindPopup('<div style="text-align: center;"><font size="6" >Gage: </b>'+Datos[i].Gage_iD+'</font></div>');
+                marker3.bindPopup('<div style="text-align: center;"><font size="4" >Gage: </b>'+Datos[i].Gage_iD+'</font></div></b><div>'+ Datos[i].Calibracion +'</div>');
                   
                 markersLayer.addLayer(marker3);
                 }
