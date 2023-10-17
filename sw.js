@@ -1,4 +1,4 @@
-const mapaPWA = "MapaEIMP@v2-cache";
+const mapaPWA = "MapaEIMP@v3-cache";
 const assets = [
   "/ubicaciones/",
   "/ubicaciones/index.html",
